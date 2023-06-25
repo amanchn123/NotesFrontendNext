@@ -1,0 +1,40 @@
+
+
+.header{
+    display: flex;
+    height: 5rem;
+    background-color: rgb(112, 110, 114);
+    place-items: center;
+    justify-content: space-between;
+    padding-right: 30px;
+}
+
+.log img{
+    height: 100%;
+}
+
+@media(max-width:600px){
+  .header{
+    height: 3rem;
+  }
+  .clgname{
+    display: none;
+  }
+
+  .btn{
+    height: 60%;
+    display: grid;
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+
+.log{
+    height: 100%;
+}
+
+.clgname{
+
+    font-size: 30px;
+    align-self: center;
+}

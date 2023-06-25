@@ -1,0 +1,28 @@
+.container{
+    min-height: 89vh;
+    display: grid;
+    justify-content:center;
+    place-items: center;
+    /* background-color: rgb(117, 13, 214); */
+}
+
+.selec{
+    /* background-color: blueviolet; */
+}
+
+.flexcontainer{
+    width: 60%;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.flexitem{
+    border: 2px solid black;
+    margin: 10px;
+    display: grid;
+    place-items: center;
+}
+
+.flexitem img{
+    height: 100px;
+}

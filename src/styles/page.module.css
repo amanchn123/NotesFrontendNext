@@ -1,0 +1,25 @@
+.Home{
+    min-height: 86.5vh;
+}
+
+
+.flexcontainer{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.flexitem{
+    height: 200px;
+    flex: 0 0 calc(25%-40px);
+    width: 200px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 3px solid rgb(0, 0, 0);
+    margin: 10px;
+    box-shadow: 5px 8px rgb(71, 71, 70);
+    display: grid;
+    place-items: center;
+    background-color: rgb(147, 180, 124);
+}
