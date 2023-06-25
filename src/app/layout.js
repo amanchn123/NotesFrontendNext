@@ -1,10 +1,8 @@
-'use client'
 import './globals.css'
 import Headers from './header/Header.js'
 import store from '../store/store.js'
 import { Prov } from '../provide'
-// import {ChakraProviders} from './_app'
-import { ChakraProvider } from '@chakra-ui/react'
+
 
 export const metadata = {
   title: 'first',

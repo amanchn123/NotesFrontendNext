@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect } from 'react'
 import styles from '../../styles/header.module.css'
 import Link from 'next/link'
