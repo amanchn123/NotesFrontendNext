@@ -54,9 +54,9 @@ export default function page() {
 
        const getCred=useSelector((state)=>state.LoginRed?state.LoginRed.authdata:"")
        
-       if(getCred==null){
-        //  router.push("/")
-       }
+      //  if(getCred==null){
+      //   //  router.push("/")
+      //  }
     
    const submit=async()=>{
 
