@@ -15,6 +15,7 @@ import { Api_url } from '../../apiurl';
 import { useRouter } from 'next/navigation'
 
 
+
 export default function page() {
    const [sem,setSem]=useState(null)
    const[course,setCourse]=useState([])
@@ -50,10 +51,11 @@ export default function page() {
      
    };
 
+
        const getCred=useSelector((state)=>state.LoginRed?state.LoginRed.authdata:"")
        
        if(getCred==null){
-         router.push("/")
+        //  router.push("/")
        }
     
    const submit=async()=>{
