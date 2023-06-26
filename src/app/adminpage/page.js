@@ -12,16 +12,10 @@ import { analytics } from '../firebase/firebase';
 import {ref,uploadBytes,getDownloadURL } from 'firebase/storage'
 import axios from 'axios';
 import { Api_url } from '../../apiurl';
-import { useToast } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation'
 
 
 export default function page() {
-
-   const[building,setBuilding]=useState([])
-   const[main,setMain]=useState([])
-   const[data,setData]=useState([])
-   const[doclinks,setDoclinks]=useState([])
    const [sem,setSem]=useState(null)
    const[course,setCourse]=useState([])
    const [branch,setBranch]=React.useState(null)
@@ -31,7 +25,6 @@ export default function page() {
    const[inputfile,setInputfile]=useState(null)
    
    const fileref=React.useRef() 
-   const toast=useToast()
    const router=useRouter()
     
 
@@ -269,5 +262,3 @@ export default function page() {
     </div>
   )
 }
-
-

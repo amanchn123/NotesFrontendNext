@@ -1,6 +1,5 @@
 import './globals.css'
 import Headers from './header/Header.js'
-import store from '../store/store.js'
 import { Prov } from '../provide'
 
 
