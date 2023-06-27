@@ -55,9 +55,11 @@ export default function page() {
         })
  
         console.log("resuit",result.data)
+        if(result.data==0){
+          alert(`There is no Notes Available for this selection`)
+        }
        await setData(result.data)
    
-
  
      }catch (error){
         console.log(error)
@@ -182,13 +184,12 @@ export default function page() {
      </FormControl>
      </div>
      <div className={styles.flexcontainer}>
-     {data!==null? data.map((ele)=>{
+     {data.length!==0? data.map((ele)=>{
         return(
         <div className={styles.flexitem} >
         <a style={{backgroundColor:"yellowgreen",margin:"5px",display:"grid",justifyContent:"center"}} className='downloadLink' download={ele.sub} onClick={()=>handleDownload(ele.note,event)}>
         <img src='https://www.computerhope.com/jargon/d/doc.png' /><span style={{display:"flex",justifyContent:"center"}}>Unit-{ele.unit}</span>
         </a>
-         
         </div>
         )
        }):""}
