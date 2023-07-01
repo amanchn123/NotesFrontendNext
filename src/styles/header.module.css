@@ -34,7 +34,8 @@
 }
 
 .clgname{
-
-    font-size: 30px;
+    color: azure;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
     align-self: center;
 }

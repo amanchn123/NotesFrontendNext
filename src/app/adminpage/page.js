@@ -36,31 +36,29 @@ export default function page() {
    const handleChangebranch = (event) => {
      setBranch(event.target.value);
    };
+
    const handleChangesem = (event) => {
      setSem(event.target.value);
    };
+
    const handleChangesec = (event) => {
      setSec(event.target.value);
    };
+   
    const handleChangesub = (event) => {
      setSub(event.target.value);
    };
  
    const handleChangeunit = (event) => {
      setUnit(event.target.value);
-     
    };
 
 
        const getCred=useSelector((state)=>state.LoginRed?state.LoginRed.authdata:"")
        
-      //  if(getCred==null){
-      //   //  router.push("/")
-      //  }
-    
    const submit=async()=>{
 
-    
+
     try{
       if(inputfile!==null){
         console.log("inputfile",inputfile[0])
@@ -79,13 +77,10 @@ export default function page() {
               unit:unit,
             })
 
-
+            alert(`Notes of unit ${unit} successfully uploaded`)
            }else{
             alert("you are not authiorize")
            }
-          }).then(async()=>{
-
-           alert(`Notes of unit ${unit} successfully uploaded`)
           })
         })
        
@@ -193,7 +188,7 @@ export default function page() {
           onChange={handleChangebranch}
         >
 
-          <MenuItem value={"Aa/Ml"}>AI/Ml</MenuItem>
+          <MenuItem value={"Ai/Da"}>AI/Ml</MenuItem>
           <MenuItem value={"CSE"}>CSE</MenuItem>
           <MenuItem value={"EC"}>EC</MenuItem>
           <MenuItem value={"Civil"}>Civil</MenuItem>
@@ -259,8 +254,6 @@ export default function page() {
      </FormControl>
      <div><Button style={{backgroundColor:"green"}} variant="contained" onClick={submit}>Upload</Button></div>
      </div>
-     
-     
     </div>
   )
 }
