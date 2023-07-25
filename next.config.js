@@ -6,4 +6,21 @@ const nextConfig = {
   },
 }
 
+module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/old-page',
+        destination: '/new-page',
+        permanent: true, // 301 Permanent Redirect
+      },
+      {
+        source: '/blog/:slug', // You can use dynamic routes
+        destination: '/articles/:slug', // Redirect to the new path
+        permanent: true,
+      },
+    ];
+  },
+};
+
 module.exports = nextConfig
