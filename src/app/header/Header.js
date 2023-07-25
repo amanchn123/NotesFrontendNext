@@ -21,7 +21,7 @@ export default function Header() {
   const details=useSelector((state)=>state.LoginRed?state.LoginRed.authdata:null)
   return (
     <header className={styles.header}>
-          <div className={styles.log}><Link href='/'> <img src="https://www.admissionindia.net/uploads/colleges/31/logo.png" /></Link></div>
+          <div className={styles.log} style={{border:"3px solid black"}}><Link href='/'> <img src="https://www.admissionindia.net/uploads/colleges/31/logo.png" /></Link></div>
           <div className={styles.clgname}>LNCT UNIVERSITY - NOTES</div>
           <Link className={styles.btn} style={{backgroundColor:"yellow",padding:"10px",borderRadius:"4%",display:details!==null?"none":"grid"}} href='/adminlogin' >Admin Login</Link>
           <Button className={styles.btn} style={{backgroundColor:"yellow",padding:"10px",display:details!==null?"grid":"none"}} onClick={logout}>Logout</Button>
