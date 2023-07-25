@@ -19,8 +19,11 @@ export default function Header() {
   } 
 
   const details=useSelector((state)=>state.LoginRed?state.LoginRed.authdata:null)
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 06d011a (pageee)
   return (
     <header className={styles.header}>
           <div className={styles.log}><Link href='/'> <img src="https://www.admissionindia.net/uploads/colleges/31/logo.png" /></Link></div>
@@ -32,5 +35,8 @@ export default function Header() {
 }
 
 
+<<<<<<< HEAD
 
 https://www.instagram.com/reel/Cr8bNxngbZ6/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==
+=======
+>>>>>>> 06d011a (pageee)
