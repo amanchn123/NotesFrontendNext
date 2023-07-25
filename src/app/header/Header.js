@@ -34,9 +34,3 @@ export default function Header() {
   )
 }
 
-
-<<<<<<< HEAD
-
-https://www.instagram.com/reel/Cr8bNxngbZ6/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==
-=======
->>>>>>> 06d011a (pageee)
