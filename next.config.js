@@ -10,9 +10,9 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/*',
+        source: '/:path*',
         destination: '/',
-        permanent: true, // 301 Permanent Redirect
+        permanent: false, // 301 Permanent Redirect
       },
       {
         source: '/blog/:slug', // You can use dynamic routes
