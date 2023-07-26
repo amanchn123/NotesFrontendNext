@@ -10,8 +10,8 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/old-page',
-        destination: '/new-page',
+        source: '/*',
+        destination: '/',
         permanent: true, // 301 Permanent Redirect
       },
       {
