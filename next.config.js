@@ -1,21 +1,18 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
     appDir: true,
-    forceSwcTransforms:true,
+    forceSwcTransforms: true,
   },
-}
+};
 
-module.exports = {
+module.exports = Object.assign({}, nextConfig, {
   async redirects() {
     return [
       {
         source: '/:path*',
         destination: '/',
-        permanent: false, // 301 Permanent Redirect
-      }
+        permanent: false, // 302 Temporary Redirect
+      },
     ];
   },
-};
-
-module.exports = nextConfig
+});
