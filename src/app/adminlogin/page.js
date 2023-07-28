@@ -14,9 +14,7 @@ export default function page() {
   const [username,setUsername]=useState()
   const[password,setPassword]=useState()
   
-
   const dispatch=useDispatch()
-
 
   const details=useSelector((state)=>state.LoginRed?state.LoginRed.authdata:null)
   const router=useRouter()

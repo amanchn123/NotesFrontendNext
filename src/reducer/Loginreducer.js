@@ -4,12 +4,12 @@
 //     auth:localStorage.getItem("Credentials")?JSON.parse(localStorage.getItem("Credentials")):null,
 //     authdata:auth
 // }
-let authdata=null
+let authdata="pppppp"
 
 if (typeof window !== 'undefined') {
     // Check if localStorage is available in the current environment (browser)
     const credentials = localStorage.getItem("Credentials");
-    authdata = credentials ? JSON.parse(credentials) : null;
+    authdata = credentials ? JSON.parse(credentials) : "kkkkkk";
   }
   
   const init = {

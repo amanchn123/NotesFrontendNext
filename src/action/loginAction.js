@@ -1,7 +1,5 @@
-'use client'
 import axios from 'axios'
 import { Api_url } from '../apiurl'
-
 
 export const LoginAction=(data)=>async(dispatch)=> {
    dispatch({type:"LOGIN_REQUEST"})

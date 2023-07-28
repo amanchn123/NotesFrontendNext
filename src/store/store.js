@@ -17,5 +17,4 @@ const Store=configureStore({
     reducer:rootreducer
 })
 
-
 export default Store;
