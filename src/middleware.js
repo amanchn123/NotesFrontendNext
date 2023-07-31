@@ -10,5 +10,5 @@ export const middleware=async(request) =>{
 }
 
 export const config={
-    matcher:['/adminpage','/BCA']
+    matcher:['/adminpage']
 }

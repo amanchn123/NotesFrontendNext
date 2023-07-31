@@ -30,3 +30,7 @@ export const logoutAction=()=>dispatch=>{
     console.log("error")
   }
 }
+
+export const Mode=(mode)=>dispatch=>{
+  dispatch({type:"MODE_CHANGE",modetype:mode})
+}

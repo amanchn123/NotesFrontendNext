@@ -1,14 +1,118 @@
 .Home{
     min-height: 86.5vh;
+    display: grid;
+    place-items: center;
+    width: 100vw;
 }
 
 
-.flexcontainer{
-    display: flex;
-    flex-wrap:wrap;
+.row1{
+  height: 400px;
+}
+
+.rows{
+    
+}
+
+.row2{
+    margin-top: 60px;
+    background-color: blueviolet;
+    height: 200px;
+    margin-bottom: 50px;
+}
+
+.row2a{
     justify-content: center;
-    margin-top: 20px;
+    display: grid;
+    border-radius: 15px 15px 15px 15px;
 }
+
+.row2b{
+    border-radius: 0px 15px 15px 0px;
+    margin-left: -12px;
+    justify-content: left;
+}
+
+.featurerow{
+  /* background-color: brown; */
+  margin-top: 20px;
+  padding: 20px;
+  position: relative;
+}
+
+
+
+.featurerow:not(:last-child)::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -1px; /* Adjust the position of the line as needed */
+    height: 90%;
+    width: 2px; /* Adjust the width of the line as needed */
+    background-color: #ccc; /* Grey color for the line */ 
+}
+
+.waytoStudy{
+    margin-top: 40px;
+    display: grid;
+    justify-content: center;
+}
+
+.waytoStudy button{
+    border: 2px solid rgb(54, 255, 47);
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    width: fit-content;
+}
+
+.lastrow{
+    margin-top: 70px;
+    background-color: rgb(152, 137, 137);
+    display: grid;
+    justify-content: center;
+    padding: 30px;
+}
+
+.lastrow img{
+    height: 300px;
+}
+
+.lastrow1{
+   display: grid;
+   justify-content: flex-end;
+}
+
+.lastrow div{
+    width: 350px;
+}
+
+@media(max-width:1200px){
+    .row2b{
+        display: none;
+    }
+
+    .featurerow:not(:last-child)::after{
+        display: none;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -1px; /* Adjust the position of the line as needed */
+        height: 90%;
+        width: 2px; /* Adjust the width of the line as needed */
+        background-color: #ccc; /* Grey color for the line */ 
+}
+}
+
+.verticalline {
+    width: 2px; /* Adjust the width of the line as needed */
+    height: 300px; /* Set the height to match the height of the sections */
+    background-color: #ccc; /* Grey color for the line */
+    display: inline-block; /* To make the line appear inline with sections */
+    content: ''; /* Necessary for ::before and ::after pseudo-elements */
+  }
+
+
 
 .flexitem{
     height: 200px;
