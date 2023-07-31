@@ -185,8 +185,8 @@ export default function page() {
   )
 }
 
-export function generateMetadata({params}){
-  return{
-    title:"BCA"
-}
-}
+// export function generateMetadata({params}){
+//   return{
+//     title:"BCA"
+// }
+// }
