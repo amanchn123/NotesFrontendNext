@@ -8,8 +8,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
-import { analytics } from '../firebase/firebase';
-import {ref,uploadBytes,getDownloadURL } from 'firebase/storage'
+import {analytics}  from '../../firebase/firebase-config.js';
+import {uploadBytesResumable,getDownloadURL,ref } from 'firebase/storage'
+
 import axios from 'axios';
 import { Api_url } from '../../apiurl';
 import { useRouter } from 'next/navigation'
@@ -56,41 +57,53 @@ export default function page() {
 
        const getCred=useSelector((state)=>state.LoginRed?state.LoginRed.authdata:"")
        
-   const submit=async()=>{
+      //  const { firebaseInitialized, storage } = useFirebase();
+      //  console.log("firebaseInitialized",firebaseInitialized)
+   
+const submit = async () => {
 
+  try { 
 
-    try{
-      if(inputfile!==null){
-        console.log("inputfile",inputfile[0])
-        const imageref=ref(analytics,'notes/')
-        uploadBytes(imageref,inputfile[0]).then(async(data)=>{
-          await getDownloadURL(data.ref).then(async(url)=>{
-           if(getCred.course == course){
-            const response = await axios.post(`${Api_url}/api/notes`,{
-              building:getCred.building,
-              course:course,
-              sem:sem,
-              note:url,
-              branch:branch,
-              sec:sec,
-              sub:sub,
-              unit:unit,
-            })
+    if (inputfile !== null) {
+      console.log("inputfile", inputfile[0]);
+      const imageref = ref(analytics,'notes/lnct'); // Use the storage instance to get a reference
 
-            alert(`Notes of unit ${unit} successfully uploaded`)
-           }else{
-            alert("you are not authiorize")
-           }
-          })
-        })
-       
-       }else{
-        alert("Pls select all fields")
-       }
-    }catch (error){
-      console.log(error)
+      uploadBytesResumable(imageref,inputfile[0]).then(async (data) => {
+        await getDownloadURL(data.ref).then(async (url) => {
+          if (getCred.course == course) {
+            const response = await axios.post(`${Api_url}/api/notes`, {
+              building: getCred.building,
+              course: course,
+              sem: sem,
+              note: url,
+              branch: branch,
+              sec: sec,
+              sub: sub,
+              unit: unit,
+            });
+
+            console.log("responsed", response);
+
+            alert(`Notes of unit ${unit} successfully uploaded`);
+          } else {
+            alert("you are not authorized");
+          }
+        });
+      });
+
+    } else {
+      alert("Please select all fields");
     }
-     }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+useEffect(()=>{
+ if(getCred==null){
+  router.push('/')
+ } 
+})
 
 
   return (
@@ -129,9 +142,7 @@ export default function page() {
           label="Sem"
           onChange={handleChangesem}
         >
-          {/* <MenuItem value=""> */}
-            {/* <em>None</em> */}
-          {/* </MenuItem> */}
+
           <MenuItem value={"1"}>1</MenuItem>
           <MenuItem value={"2"}>2</MenuItem>
           <MenuItem value={"3"}>3</MenuItem>

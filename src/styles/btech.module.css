@@ -1,13 +1,15 @@
 .container{
-    min-height: 89vh;
+    min-height: 67vh;
     display: grid;
+    color: azure;
+    background-color: rgb(193, 179, 155);
     justify-content:center;
     place-items: center;
     /* background-color: rgb(117, 13, 214); */
 }
 
 .selec{
-    /* background-color: blueviolet; */
+  
 }
 
 .flexcontainer{

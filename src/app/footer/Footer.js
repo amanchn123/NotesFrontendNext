@@ -18,7 +18,7 @@ export default function page() {
             }}
           >
          Collage Notes
-          </header>
+          </header>    
          <b style={{justifyContent:"center",display:"grid"}}> Our Links</b>
         <span style={{display:"flex",justifyContent:"space-evenly"}}>
           <ul>

@@ -19,9 +19,11 @@ export default function page() {
   const details=useSelector((state)=>state.LoginRed?state.LoginRed.authdata:null)
   const router=useRouter()
 
-  if(details!==null){
-    router.push('/adminpage')
-  }
+  useEffect(()=>{
+    if(details!==null){
+      router.push('/adminpage')
+    }
+  })
     
   const submit=async()=>{
     const data=await {username,password}

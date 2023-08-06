@@ -14,7 +14,7 @@ import { EffectCoverflow, Pagination } from "swiper/modules";
 
 export default function Slider() {
   return (
-    <div style={{ height: "320px", width: "80%" }}>
+    <div className={styles.main}>
       <Swiper
         style={{ height: "300px", width: "50", marginTop: "20px" }}
         effect={"coverflow"}

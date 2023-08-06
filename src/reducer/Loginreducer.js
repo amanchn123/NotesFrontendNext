@@ -4,12 +4,12 @@
 //     auth:localStorage.getItem("Credentials")?JSON.parse(localStorage.getItem("Credentials")):null,
 //     authdata:auth
 // }
-let authdata="pppppp"
+let authdata=null
 
 if (typeof window !== 'undefined') {
     // Check if localStorage is available in the current environment (browser)
     const credentials = localStorage.getItem("Credentials");
-    authdata = credentials ? JSON.parse(credentials) : "kkkkkk";
+    authdata = credentials ? JSON.parse(credentials) : null;
   }
   
   const init = {
@@ -17,7 +17,7 @@ if (typeof window !== 'undefined') {
   };
 
 
-export const LoginRed=(state=init?init:"",action)=>{
+export const LoginRed=(state=init?init:null,action)=>{
     
   switch(action.type){
     case "LOGIN_REQUEST":
@@ -34,12 +34,24 @@ export const LoginRed=(state=init?init:"",action)=>{
   }
 }
 
-export const logoutRed=(state,action)=>{
+export const logoutRed=(state={},action)=>{
    switch(action.type){
     case "CLEAR_ALL":
-      return{...state,LoginRed:{}}
+      localStorage.clear('Credentials')
+      return {...state,authdata:null}
 
     default:
       return{...state}  
    }
+}
+
+
+export const modeChange=(state,action)=>{
+  switch(action.type){
+    case "MODE_CHANGE":
+      return{...state,mode:action.modetype}
+
+    default:
+      return{...state,mode:"dark"}  
+  }
 }

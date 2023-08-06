@@ -1,11 +1,14 @@
+'use client'
+
 import axios from 'axios'
 import { Api_url } from '../apiurl'
+import { useRouter } from "next/navigation";
 
 export const LoginAction=(data)=>async(dispatch)=> {
+  
    dispatch({type:"LOGIN_REQUEST"})
    console.log("KK")
    try{
-    
       const result=await axios.post(`${Api_url}/api/login`,{
         username:data.username,
         password:data.password
@@ -13,7 +16,7 @@ export const LoginAction=(data)=>async(dispatch)=> {
   
      console.log(":::",result.data.response)
 
-      if(result.data.success){
+      if(result.data.success){  
         localStorage.setItem("Credentials",JSON.stringify(result.data.response))
       }
       dispatch({type:"LOGIN_SUCCESS",payload:result.data.response})
@@ -25,12 +28,9 @@ export const LoginAction=(data)=>async(dispatch)=> {
 
 export const logoutAction=()=>dispatch=>{
   try{
+    localStorage.clear("Credentials")
      dispatch({type:"CLEAR_ALL"})
   }catch (error){
     console.log("error")
   }
-}
-
-export const Mode=(mode)=>dispatch=>{
-  dispatch({type:"MODE_CHANGE",modetype:mode})
 }

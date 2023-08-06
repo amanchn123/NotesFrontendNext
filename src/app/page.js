@@ -5,16 +5,20 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import Button from "@mui/material/Button";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { CiLogin } from "react-icons/ci";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import Slider from "./slider";
 
 export default function page() {
-  const router = useRouter();
+  // const router = useRouter();
   return (
     <div className={styles.Home}>
-      <Grid style={{ width: "65vw", marginTop: "30px" }} container lg={12}>
+      <Grid
+        className={`${styles.maingrid} ${styles.maingrid1}`}
+        container
+        lg={12}
+      >
         <Grid
           className={`${styles.rows} ${styles.row1}`}
           item
@@ -28,31 +32,35 @@ export default function page() {
             Preparation!
           </span>
           <br />
-          <span>
+          <span style={{ fontFamily: "serif" }}>
             Good notes are the backbone of all your exams' preparation
             CollegeNotes provides you with just that - notes, books, PYQs and
             more - everything you need to ace your semesters without worrying
             about the resources!
           </span>
-          <Button
-            variant="contained"
+          <Link
+            href='/BCA'
             style={{
               backgroundColor: "green",
               height: "40px",
               marginTop: "5px",
+              display:"flex",
+              borderRadius:"10px",
+              padding:"5px",
+              boxShadow:"2px 2px 4px 0px rgba(128, 128, 128, 1)",
+              placeItems:"center"
             }}
-            color="success"
-            onClick={() => router.push("/BCA")}
           >
-            All Subjects <CiLogin />{" "}
-          </Button>{" "}
+            <p>All Subjects</p> &nbsp; <CiLogin />{" "}
+          </Link>{" "}
           &nbsp;&nbsp;&nbsp;
           <Link
             style={{
-              border: "2px solid black",
+              border: "2px solid blue",
               marginTop: "5px",
               padding: "7px",
-              borderRadius: "10%",
+              borderRadius: "10px",
+
               height: "40px",
             }}
             href="/abouts"
@@ -88,14 +96,10 @@ export default function page() {
           />
         </Grid>
 
-        <Grid lg={12}>
+        <Grid lg={12} className={styles.row3}>
           <p
-            style={{
-              fontSize: "40px",
-              display: "grid",
-              justifyContent: "center",
-              fontFamily: "fantasy",
-            }}
+           className={styles.p}
+           fontFamily="fantasy`"
           >
             Newest Feature Addition
           </p>
@@ -180,7 +184,7 @@ export default function page() {
         </Grid>
       </Grid>
 
-      <Grid container lg={12}>
+      <Grid container lg={12} className={styles.maingrid}>
         <Grid lg={6} sx={12} className={`${styles.lastrow} ${styles.lastrow1}`}>
           <header
             style={{
@@ -220,12 +224,13 @@ export default function page() {
       </Grid>
 
       <Grid
+      className={styles.maingrid}
         container
         lg={6}
         sx={12}
-        style={{ marginTop: "60px", width: "100vw",justifyContent:"center" }}
+        style={{ marginTop: "60px", width: "100vw", justifyContent: "center" }}
       >
-        <Grid lg={4} sx={12} style={{display:"grid",justifyContent:"end"}}>
+        <Grid lg={4} sx={12} style={{ display: "grid", justifyContent: "end" }}>
           <header
             style={{
               fontSize: "35px",
@@ -235,13 +240,20 @@ export default function page() {
           >
             Testinomials
           </header>
-          <div style={{width:"200px",display:"grid",justifyContent:"center",fontSize:"18px"}}>
+          <div
+            style={{
+              width: "200px",
+              display: "grid",
+              justifyContent: "center",
+              fontSize: "18px",
+            }}
+          >
             See what thousands of college and university students studying with
             CollegeNotes have to say about us.Top Universite's student of India
             are praising us
           </div>
         </Grid>
-        <Grid lg={8} sx={12}>
+        <Grid lg={8} sx={12} className={`${styles.slidergrid}`} >
           <Slider />
         </Grid>
       </Grid>

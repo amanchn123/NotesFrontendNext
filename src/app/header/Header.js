@@ -1,29 +1,4 @@
 "use client";
-// // import React, { useEffect } from 'react'
-// // import { logoutAction } from '../../action/loginAction'
-// // import { useDispatch, useSelector } from 'react-redux'
-// // import {Button,Input} from '@mui/material';
-
-// // export default function Header() {
-// //   const router=useRouter()
-// //   const dispatch=useDispatch()
-
-// //   const logout=async()=>{
-// //     dispatch(logoutAction())
-// //     localStorage.clear("authdata")
-// //     router.push("/")
-// //   }
-
-// //   const details=useSelector((state)=>state.LoginRed?state.LoginRed.authdata:null)
-// //   return (
-// //     <header className={styles.header}>
-// //           <div className={styles.log} style={{border:"3px solid black"}}><Link href='/'> <img src="https://www.admissionindia.net/uploads/colleges/31/logo.png" /></Link></div>
-// //           <div className={styles.clgname}>LNCT UNIVERSITY - NOTES</div>
-// //           <Link className={styles.btn} style={{backgroundColor:"yellow",padding:"10px",borderRadius:"4%",display:details!==null?"none":"grid"}} href='/adminlogin' >Admin Login</Link>
-// //           <Button className={styles.btn} style={{backgroundColor:"yellow",padding:"10px",display:details!==null?"grid":"none"}} onClick={logout}>Logout</Button>
-// //     </header>
-// //   )
-// // }
 
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
@@ -47,16 +22,30 @@ import {BsMoon} from 'react-icons/bs'
 import {BsSun} from 'react-icons/bs'
 import Link from "next/link";
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import {logoutAction} from '../../action/loginAction'
 
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = [<Link href='/user'>user</Link>, "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function page() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+
   const router = useRouter();
+  
+  const dispatch=useDispatch()
+  const details=useSelector((state)=>state.LoginRed?state.LoginRed.authdata:null)
+
+  
+  const logout=async()=>{
+    await localStorage.clear("Credentials")
+    dispatch(logoutAction())
+    router.push('/')
+    
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -76,7 +65,6 @@ export default function page() {
     const [mounted, setMounted] = useState(false)
     const { theme, setTheme } = useTheme()
   
-    // useEffect only runs on the client, so now we can safely show the UI
     useEffect(() => {
       setMounted(true)
     }, [])
@@ -86,7 +74,7 @@ export default function page() {
     }
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" style={{backgroundColor: "rgb(58, 54, 54)"}}>
         <Toolbar disableGutters>
 
           <Typography
@@ -193,7 +181,7 @@ export default function page() {
               </Button>
             ))}
             &nbsp;&nbsp;
-           <Link href='/adminlogin'>
+              {details==null?           <Link href='/adminlogin'>
            <Button
               variant="contained"
               color="success"
@@ -205,7 +193,20 @@ export default function page() {
             >
               <IoIosLogIn /> &nbsp; Login
             </Button>&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-           </Link>
+           </Link>: 
+           <Button
+           onClick={logout}
+              variant="contained"
+              color="success"
+              style={{
+                fontSize: "16px",
+                height: "35px",
+                backgroundColor: "green",
+              }}
+            >
+              <IoIosLogIn /> &nbsp; Logout
+            </Button>
+           } &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
             {theme==='dark'? <BsSun onClick={()=>setTheme("light")} size={25} style={{cursor:"pointer"}} />:
             <BsMoon onClick={()=>setTheme("dark")} size={25} style={{cursor:"pointer"}} />}
             &nbsp;&nbsp;

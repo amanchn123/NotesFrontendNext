@@ -23,7 +23,6 @@ export default function page() {
     const [sub,setSub]=React.useState(null)
     const [unit,setUnit]=React.useState(null)
     const[data,setData]=React.useState([])
-    const[loading,setLoading]=React.useState(false)
 
     
     const fileref=React.useRef() 
@@ -46,7 +45,6 @@ export default function page() {
 
     if(branch!==null && sem!==null && sec!==null){
       try{
-        setLoading(true)
         const result=await axios.post(`${Api_url}/api/getnotes`,{
          building:"MCA",
          sem,
@@ -55,20 +53,36 @@ export default function page() {
          sec,
          sub
         })
-        setLoading(false)
+ 
         console.log("resuit",result.data)
         if(result.data==0){
           alert(`There is no Notes Available for this selection`)
         }
        await setData(result.data)
-
-       }catch (error){
+   
+ 
+     }catch (error){
         console.log(error)
      }
     }else{
       alert("select all")
     }
+
   }
+
+  // const downloadfile=(url)=>{
+  // //  const atag=document.createElement("a")
+  // //   atag.href=url;
+  // //   atag.setAttribute("navigate","Note")
+  // //   document.body.appendChild(atag);
+  // //   atag.click()
+  // //   atag.remove()
+
+  // const downloadLink = document.getElementById("downloadLink");
+  // downloadLink.addEventListener("click", (event) => {
+  //   downloadFile(url, event);
+  // });
+  // }
 
 
     const handleDownload = (fileUrl,event) => {
@@ -170,8 +184,7 @@ export default function page() {
      </FormControl>
      </div>
      <div className={styles.flexcontainer}>
-     {loading?(<h1>Loading...</h1>):
-    ( data.length!==0? data.map((ele)=>{
+     {data.length!==0? data.map((ele)=>{
         return(
         <div className={styles.flexitem} >
         <a style={{backgroundColor:"yellowgreen",margin:"5px",display:"grid",justifyContent:"center"}} className='downloadLink' download={ele.sub} onClick={()=>handleDownload(ele.note,event)}>
@@ -179,14 +192,8 @@ export default function page() {
         </a>
         </div>
         )
-       }):"")}
+       }):""}
      </div>
     </div>
   )
 }
-
-// export function generateMetadata({params}){
-//   return{
-//     title:"BCA"
-// }
-// }
