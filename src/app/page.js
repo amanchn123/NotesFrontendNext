@@ -1,17 +1,17 @@
-"use client";
+
 import Link from "next/link";
 import styles from "../styles/page.module.css";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import Button from "@mui/material/Button";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { CiLogin } from "react-icons/ci";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import Slider from "./slider";
 
 export default function page() {
-  // const router = useRouter();
+  const router = useRouter();
   return (
     <div className={styles.Home}>
       <Grid
@@ -219,7 +219,7 @@ export default function page() {
           </div>
         </Grid>
         <Grid lg={6} sx={12} className={styles.lastrow}>
-          <img src="img3.webp" />
+          <img src="img3.webp" onClick={router.push('/about')} />fg
         </Grid>
       </Grid>
 
