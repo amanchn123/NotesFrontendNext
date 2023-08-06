@@ -1,4 +1,4 @@
-
+"use client"
 import Link from "next/link";
 import styles from "../styles/page.module.css";
 import Box from "@mui/material/Box";
@@ -38,21 +38,18 @@ export default function page() {
             more - everything you need to ace your semesters without worrying
             about the resources!
           </span>
-          <Link
-            href='/BCA'
+          <Button
+            variant="contained"
             style={{
               backgroundColor: "green",
               height: "40px",
               marginTop: "5px",
-              display:"flex",
-              borderRadius:"10px",
-              padding:"5px",
-              boxShadow:"2px 2px 4px 0px rgba(128, 128, 128, 1)",
-              placeItems:"center"
             }}
+            color="success"
+            onClick={() => router.push("/BCA")}
           >
-            <p>All Subjects</p> &nbsp; <CiLogin />{" "}
-          </Link>{" "}
+            All Subjects <CiLogin />{" "}
+          </Button>{" "}
           &nbsp;&nbsp;&nbsp;
           <Link
             style={{
@@ -219,7 +216,7 @@ export default function page() {
           </div>
         </Grid>
         <Grid lg={6} sx={12} className={styles.lastrow}>
-          <img src="img3.webp" onClick={router.push('/about')} />fg
+          <img src="img3.webp" />
         </Grid>
       </Grid>
 
