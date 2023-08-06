@@ -12,12 +12,12 @@ setMounted(true)
 
   if(!mounted){
     return (<>
-      <h1>Loadingggg/.....</h1>
+      <h1>Loadingggg/....grfgerfe.</h1>
     </>)
   }
   return (
     <div>
-      <h1>Userrrrrrrrrrrrrrrrrrrrrr</h1>
+      <h1>Userr</h1>
     </div>
   )
 }
