@@ -39,16 +39,19 @@ export default function page() {
           </span>
           <Link
           href='/BCA'
-            // variant="contained"
             style={{
               backgroundColor: "green",
               height: "40px",
               marginTop: "5px",
+              padding:"10px",
+              display:"flex",
+              placeItems:"center",
+              borderRadius:"10px",
+              boxShadow:"3px 5px 10px 0px",
+              fontSize:"20px"
             }}
-            color="success"
-            // onClick={() => router.push("/BCA")}
           >
-            All Subjects <CiLogin />{" "}
+            <p>All Subjects</p> <CiLogin />{" "}
           </Link>{" "}
           &nbsp;&nbsp;&nbsp;
           <Link
