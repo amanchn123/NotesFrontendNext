@@ -1,4 +1,3 @@
-"use client"
 import Link from "next/link";
 import styles from "../styles/page.module.css";
 import Box from "@mui/material/Box";
@@ -11,7 +10,7 @@ import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import Slider from "./slider";
 
 export default function page() {
-  const router = useRouter();
+  // const router = useRouter();
   return (
     <div className={styles.Home}>
       <Grid
@@ -38,18 +37,19 @@ export default function page() {
             more - everything you need to ace your semesters without worrying
             about the resources!
           </span>
-          <Button
-            variant="contained"
+          <Link
+          href='/BCA'
+            // variant="contained"
             style={{
               backgroundColor: "green",
               height: "40px",
               marginTop: "5px",
             }}
             color="success"
-            onClick={() => router.push("/BCA")}
+            // onClick={() => router.push("/BCA")}
           >
             All Subjects <CiLogin />{" "}
-          </Button>{" "}
+          </Link>{" "}
           &nbsp;&nbsp;&nbsp;
           <Link
             style={{

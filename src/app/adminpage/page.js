@@ -56,9 +56,6 @@ export default function page() {
 
 
        const getCred=useSelector((state)=>state.LoginRed?state.LoginRed.authdata:"")
-       
-      //  const { firebaseInitialized, storage } = useFirebase();
-      //  console.log("firebaseInitialized",firebaseInitialized)
    
 const submit = async () => {
 

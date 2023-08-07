@@ -33,7 +33,6 @@ export default function page() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-
   const router = useRouter();
   
   const dispatch=useDispatch()
