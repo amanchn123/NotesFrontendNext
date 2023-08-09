@@ -24,14 +24,17 @@ import Link from "next/link";
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import {logoutAction} from '../../action/loginAction'
+import { usePathname } from "next/navigation";
+import {motion} from 'framer-motion' 
 
 
-const pages = [<Link href='/user'>user</Link>, "Pricing", "Blog"];
+const pages = [{href:'/user',name:"user"} ,{href:'/abouts',name:'products'}];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function page() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const pathname=usePathname()
 
   const router = useRouter();
   
@@ -150,11 +153,11 @@ export default function page() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
             </Menu>
           </Box>
 
@@ -171,13 +174,19 @@ export default function page() {
             }}
           >
             {pages.map((page) => (
-              <Button
-                key={page}
+              <motion.div
+              whileHover={{scale:1.1}}
+              >
+              <Link
+                // key={page.name}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
+                href={page.href}
+                className={`${page.href===pathname?"text-yellow-500":""} ml-10`} 
               >
-                {page}
-              </Button>
+                {page.name}
+              </Link>
+              </motion.div>
             ))}
             &nbsp;&nbsp;
               {details==null?           <Link href='/adminlogin'>

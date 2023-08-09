@@ -11,6 +11,8 @@ import styles from "../styles/user.module.css";
 
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
+import { motion } from "framer-motion";
+
 
 export default function Slider() {
   return (
@@ -32,7 +34,7 @@ export default function Slider() {
         modules={[EffectCoverflow, Pagination]}
         className={styles.Swiper}
       >
-        <SwiperSlide style={{ width: "300px", height: "300px",backgroundColor:"rgb(230, 212, 212)",borderRadius:"10px" }}>
+        <SwiperSlide style={{ width: "300px", height: "300px",backgroundColor:"rgb(230, 212, 212)",borderRadius:"10px" }} >
           <div>
           CollegeNotes has been an absolute exam-time life saver for me. I can
           just simply consume video content on YouTube and read notes from here.

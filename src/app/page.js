@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import styles from "../styles/page.module.css";
 import Box from "@mui/material/Box";
@@ -8,8 +9,11 @@ import { useRouter } from "next/navigation";
 import { CiLogin } from "react-icons/ci";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import Slider from "./slider";
+import { motion } from "framer-motion";
+import { useMediaQuery } from '@mui/material';
 
 export default function page() {
+  const isLargeScreen = useMediaQuery('(min-width: 1024px)')
   // const router = useRouter();
   return (
     <div className={styles.Home}>
@@ -18,14 +22,20 @@ export default function page() {
         container
         lg={12}
       >
-        <Grid
-          className={`${styles.rows} ${styles.row1}`}
-          item
-          lg={6}
-          sx={12}
-          container
-        >
-          <span style={{ fontSize: "50px", lineHeight: "1.1" }}>
+        <Grid className={`${styles.rows} ${styles.row1}`} item lg={6} sx={12}>
+        <motion.div
+        
+            initial={isLargeScreen?{
+              x: 150, // Initial x position before the animation
+              y: 0, // Initial y position before the animation
+            }:undefined}
+            animate={isLargeScreen?{
+              x: -20,
+              // opacity:1,
+              // scale: 1,
+            }:undefined}
+          >
+            <span style={{ fontSize: "50px", lineHeight: "1.1" }}>
             Power Your
             <br />
             Preparation!
@@ -37,45 +47,50 @@ export default function page() {
             more - everything you need to ace your semesters without worrying
             about the resources!
           </span>
-          <Link
-          href='/BCA'
-            style={{
-              backgroundColor: "green",
-              height: "40px",
-              marginTop: "5px",
-              padding:"10px",
-              display:"flex",
-              placeItems:"center",
-              borderRadius:"10px",
-              boxShadow:"3px 5px 10px 0px",
-              fontSize:"20px"
-            }}
-          >
-            <p>All Subjects</p> <CiLogin />{" "}
-          </Link>{" "}
-          &nbsp;&nbsp;&nbsp;
-          <Link
-            style={{
-              border: "2px solid blue",
-              marginTop: "5px",
-              padding: "7px",
-              borderRadius: "10px",
+          <div className="flex mt-10 mb-10">
+            <Link
+              href="/BCA"
+              className="flex shadow-xl bg-green-500 h-10 md:h-13 lg:h-10 items-center rounded p-3"
+            >
+              <p>All Subjects</p> <CiLogin />{" "}
+            </Link>{" "}
+            &nbsp;&nbsp;&nbsp;
+            <Link
+              style={{
+                border: "2px solid blue",
+                // marginTop: "5px",
+                padding: "7px",
+                borderRadius: "10px",
 
-              height: "40px",
-            }}
-            href="/abouts"
-          >
-            Collage Blog
-          </Link>
+                height: "40px",
+              }}
+              href="/abouts"
+            >
+              Collage Blog
+            </Link>
+          </div>
+          </motion.div>
         </Grid>
         <Grid
           className={`${styles.rows} ${styles.row1}`}
           item
           lg={6}
           sx={12}
-          container
+          // container
         >
-          <img style={{ height: "100%" }} src="/img1.webp" />
+          <motion.div
+            initial={isLargeScreen?{
+              x: -100, // Initial x position before the animation
+              y: 0, // Initial y position before the animation
+            }:undefined}
+            animate={isLargeScreen?{
+              x: 100,
+              // opacity:1,
+              // scale: 1,
+            }:undefined}
+          >
+            <img style={{ height: "100%" }} src="/img1.webp" />
+          </motion.div>
         </Grid>
 
         <Grid lg={6} className={`${styles.row2} ${styles.row2a}`}>
@@ -97,10 +112,7 @@ export default function page() {
         </Grid>
 
         <Grid lg={12} className={styles.row3}>
-          <p
-           className={styles.p}
-           fontFamily="fantasy`"
-          >
+          <p className={styles.p} fontFamily="fantasy`">
             Newest Feature Addition
           </p>
         </Grid>
@@ -218,13 +230,15 @@ export default function page() {
             </ul>
           </div>
         </Grid>
-        <Grid lg={6} sx={12} className={styles.lastrow}>
-          <img src="img3.webp" />
+        <Grid lg={6} sx={12} className={styles.lastrow} >
+
+            <img src="img3.webp" />
+          
         </Grid>
       </Grid>
 
       <Grid
-      className={styles.maingrid}
+        className={styles.maingrid}
         container
         lg={6}
         sx={12}
@@ -253,7 +267,7 @@ export default function page() {
             are praising us
           </div>
         </Grid>
-        <Grid lg={8} sx={12} className={`${styles.slidergrid}`} >
+        <Grid lg={8} sx={12} className={`${styles.slidergrid}`}>
           <Slider />
         </Grid>
       </Grid>
