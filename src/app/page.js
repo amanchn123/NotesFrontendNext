@@ -93,7 +93,19 @@ export default function page() {
           </motion.div>
         </Grid>
 
-        <Grid lg={6} className={`${styles.row2} ${styles.row2a}`}>
+        <Grid lg={6} >
+          <motion.div className={`${styles.row2} ${styles.row2a}`}
+            initial={isLargeScreen?{
+              x: -350, // Initial x position before the animation
+              y:0, // Initial y position before the animation
+            }:undefined}
+            animate={isLargeScreen?{
+              x: 10,
+              y:0,
+              // opacity:1,
+              // scale: 1,
+            }:undefined}
+          >
           <span style={{ fontSize: "200%" }}>We are in Beta! </span>
           <br />
 
@@ -103,6 +115,7 @@ export default function page() {
             website better for you. If you have any suggestions, please let me
             know. Explore CollegeBlog, the newest addition to CollegeNotes!
           </span>
+          </motion.div>
         </Grid>
         <Grid lg={6} className={`${styles.row2} ${styles.row2b}`}>
           <img
